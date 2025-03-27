@@ -8,11 +8,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.footballdynasty.ui.navigation.Screen
 import com.example.footballdynasty.ui.screens.main.MainMenuScreen
+import com.example.footballdynasty.ui.screens.match.MatchScreenComposable
 import com.example.footballdynasty.ui.screens.newgame.CreateGameScreen
 import com.example.footballdynasty.ui.screens.welcome.WelcomeScreen
 import com.example.footballdynasty.ui.theme.FootballDynastyTheme
@@ -71,37 +74,76 @@ fun FootballDynastyApp() {
         // Placeholder screens - will be implemented later
         composable(Screen.TeamOverview.route) {
             // Placeholder for TeamOverviewScreen
-            WelcomeScreen(hasSavedGame = false)
+            WelcomeScreen(
+                hasSavedGame = false,
+                onNewGameClick = { navController.popBackStack() }
+            )
         }
         
         composable(Screen.Players.route) {
             // Placeholder for PlayersScreen
-            WelcomeScreen(hasSavedGame = false)
+            WelcomeScreen(
+                hasSavedGame = false,
+                onNewGameClick = { navController.popBackStack() }
+            )
         }
         
         composable(Screen.Staff.route) {
             // Placeholder for StaffScreen
-            WelcomeScreen(hasSavedGame = false)
+            WelcomeScreen(
+                hasSavedGame = false,
+                onNewGameClick = { navController.popBackStack() }
+            )
         }
         
         composable(Screen.Finance.route) {
             // Placeholder for FinanceScreen
-            WelcomeScreen(hasSavedGame = false)
+            WelcomeScreen(
+                hasSavedGame = false,
+                onNewGameClick = { navController.popBackStack() }
+            )
         }
         
         composable(Screen.Stadium.route) {
             // Placeholder for StadiumScreen
-            WelcomeScreen(hasSavedGame = false)
+            WelcomeScreen(
+                hasSavedGame = false,
+                onNewGameClick = { navController.popBackStack() }
+            )
         }
         
         composable(Screen.League.route) {
             // Placeholder for LeagueScreen
-            WelcomeScreen(hasSavedGame = false)
+            WelcomeScreen(
+                hasSavedGame = false,
+                onNewGameClick = { navController.popBackStack() }
+            )
         }
         
+        // Match screen with ID parameter
+        composable(
+            route = "${Screen.Match.route}/{matchId}",
+            arguments = listOf(
+                navArgument("matchId") {
+                    type = NavType.LongType
+                    defaultValue = -1L
+                }
+            )
+        ) { backStackEntry ->
+            val matchId = backStackEntry.arguments?.getLong("matchId") ?: -1L
+            MatchScreenComposable(
+                matchId = matchId,
+                onBackPressed = { navController.popBackStack() }
+            )
+        }
+        
+        // Generic match route (without ID) - could create a new match
         composable(Screen.Match.route) {
-            // Placeholder for MatchScreen
-            WelcomeScreen(hasSavedGame = false)
+            // For demonstration purposes, we'll show a message to select a match
+            WelcomeScreen(
+                hasSavedGame = false,
+                onNewGameClick = { navController.popBackStack() }
+            )
         }
     }
 }

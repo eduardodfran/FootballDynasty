@@ -95,8 +95,8 @@ Simulation Process:
 🛠 Phase 1: MVP (Minimum Viable Product) [CURRENT FOCUS]
 ✅ Android Studio (Kotlin) project setup
 ✅ Room Database structure for teams, players, finances
-⬜ Basic UI using Jetpack Compose
-⬜ Simple match simulation algorithm (basic win/loss calculation)
+✅ Basic UI using Jetpack Compose
+✅ Simple match simulation algorithm (basic win/loss calculation)
 ⬜ Staff management interface
 ⬜ Basic financial system
 
@@ -147,9 +147,9 @@ Simulation Process:
 
 📌 8. Implementation Progress Tracking
 ✅ Project setup - Android Studio (Kotlin) and Room Database
-⬜ Database schema creation for teams, players, and league structure
-⬜ Basic UI with Jetpack Compose
-⬜ Simple match simulation algorithm
+✅ Database schema creation for teams, players, and league structure
+✅ Basic UI with Jetpack Compose
+✅ Simple match simulation algorithm
 ⬜ Staff management interface
 ⬜ Basic financial system
 
